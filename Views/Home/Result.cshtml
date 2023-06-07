@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-  <div class="container border rounded">
+  <div class="container border rounded mt-3">
     <h1>Submitted Info</h1>
     <table class="table">
       <thead>
@@ -30,11 +30,18 @@
         </tr>
         <tr>
           <th scope="row">Comment (optional):</th>
-          <td>@ViewBag.comment</td>
+          @if (!string.IsNullOrEmpty(ViewBag.comment))
+            {
+              <td>@ViewBag.comment</td>
+            }
+            else
+            {
+              <td><em>No Comment</em></td>
+            }
         </tr>
       </tbody>
     </table>
-    <a href="" class="btn btn-primary">Go Back</a>
+    <a href="" class="btn btn-primary mb-3">Go Back</a>
   </div>
 <script src="script.js"></script>
 </body>
